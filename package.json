@@ -1,0 +1,30 @@
+{
+  "name": "carts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "moleculer-runner --hot services",
+    "start": "moleculer-runner services",
+    "lint": "eslint services",
+    "docker:build": "docker build -t conduit ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.8.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "elasticsearch": "^16.7.1",
+    "ioredis": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "moleculer": "^0.14.10",
+    "moleculer-db": "^0.8.9",
+    "moleculer-elasticsearch": "^1.1.5",
+    "moleculer-web": "^0.9.1",
+    "nats": "^1.4.12"
+  }
+}
