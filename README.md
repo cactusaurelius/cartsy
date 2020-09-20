@@ -31,7 +31,7 @@ The REST API to the example app is described below.
 
 `POST /users/create`
 
-    curl --location --request POST 'http://localhost:5004/users/create' \
+    curl --location --request POST 'http://localhost:3000/users/create' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "user": {
@@ -66,7 +66,7 @@ The REST API to the example app is described below.
 
 `GET /users/login`
 
-    curl --location --request POST 'http://localhost:5004/users/login' \
+    curl --location --request POST 'http://localhost:3000/users/login' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "user": {
@@ -94,7 +94,7 @@ The REST API to the example app is described below.
 
 `GET /user`
 
-    curl --location --request GET 'http://localhost:5004/user' \
+    curl --location --request GET 'http://localhost:3000/user' \
     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4' \
 
 ### Response
