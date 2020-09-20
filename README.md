@@ -39,18 +39,18 @@ The REST API to the example app is described below.
     HTTP/1.1 200 Ok
 
     {
-    "_index": "users",
-    "_type": "user",
-    "_id": "axCCrHQB_M4gtWtjTXPU",
-    "_version": 1,
-    "result": "created",
-    "_shards": {
-        "total": 2,
-        "successful": 1,
-        "failed": 0
-    },
-    "_seq_no": 0,
-    "_primary_term": 1
+        "_index": "users",
+        "_type": "user",
+        "_id": "axCCrHQB_M4gtWtjTXPU",
+        "_version": 1,
+        "result": "created",
+        "_shards": {
+            "total": 2,
+            "successful": 1,
+            "failed": 0
+        },
+        "_seq_no": 0,
+        "_primary_term": 1
     }
 
 ## Login
@@ -74,11 +74,11 @@ The REST API to the example app is described below.
     HTTP/1.1 200 OK
 
     {
-    "user": {
-        "username": "abdozak",
-        "email": "abdo.zak.ams@gmail.com",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4"
-        }
+        "user": {
+            "username": "abdozak",
+            "email": "abdo.zak.ams@gmail.com",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4"
+            }
     }
     
 ## Get existing user
@@ -95,18 +95,18 @@ The REST API to the example app is described below.
     HTTP/1.1 404 Not Found
 
     {
-    "user": {
-        "username": "abdozak",
-        "email": "abdo.zak.ams@gmail.com",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4"
-        }
+        "user": {
+            "username": "abdozak",
+            "email": "abdo.zak.ams@gmail.com",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4"
+            }
     }
 
 ## Create Product
 
 ### Request
 
-`POST /thing/`
+`POST /products/create`
 
     curl --location --request POST 'http://localhost:3000/products/create' \
     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4' \
@@ -142,37 +142,45 @@ The REST API to the example app is described below.
 
 ### Request
 
-`GET /thing/`
+`GET /products/{Product SKU}`
 
-    curl -i -H 'Accept: application/json' http://localhost:7000/thing/
+    curl --location --request GET 'http://localhost:3000/products/9876543212/' \
+    --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4' \
+    
 
 ### Response
 
     HTTP/1.1 200 OK
-    Date: Thu, 24 Feb 2011 12:36:31 GMT
-    Status: 200 OK
-    Connection: close
-    Content-Type: application/json
-    Content-Length: 74
 
-    [{"id":1,"name":"Foo","status":"new"},{"id":2,"name":"Bar","status":null}]
+    {
+        "title": "shoes"
+    }
 
 ## Add to cart
 
 ### Request
 
-`PUT /thing/:id/status/changed`
+`POST /products/{Product SKU}/cart`
 
-    curl -i -H 'Accept: application/json' -X PUT http://localhost:7000/thing/1/status/changed
+    curl --location --request POST 'http://localhost:3000/products/9876543212/cart' \
+    --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF4Q0NySFFCX000Z3RXdGpUWFBVIiwiZW1haWwiOiJhYmRvLnphay5hbXNAZ21haWwuY29tIiwiZXhwIjoxNjA1ODA2MjgzLCJpYXQiOjE2MDA2MjIyODN9.Nn2E-aVPFfeiq_ytBa3ovJ0pgO_6-xqFQLHHNmpnAm4' \
 
 ### Response
 
     HTTP/1.1 200 OK
-    Date: Thu, 24 Feb 2011 12:36:31 GMT
-    Status: 200 OK
-    Connection: close
-    Content-Type: application/json
-    Content-Length: 40
 
-    {"id":1,"name":"Foo","status":"changed"}
+    {
+        "_index": "carts",
+        "_type": "cart",
+        "_id": "axCCrHQB_M4gtWtjTXPU",
+        "_version": 1,
+        "result": "created",
+        "_shards": {
+            "total": 2,
+            "successful": 1,
+            "failed": 0
+        },
+        "_seq_no": 0,
+        "_primary_term": 1
+    }
 
