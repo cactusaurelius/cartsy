@@ -1,7 +1,7 @@
 # Simple cart app with Users, Products and Carts functionality
 
 This App is built with Moleculer microservices, Elasticsearch as a database, Redis for caching.
-[Go to Real Cool Heading section](#run-the-tests)
+
 ## Install
 
     npm install
