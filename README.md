@@ -17,7 +17,14 @@ This App is built with Moleculer microservices, Elasticsearch as a database, Red
 # REST API
 
 The REST API to the example app is described below.
-
+- [Users](#create-a-new-user)
+    - [Create a new User](#create-a-new-user)
+    - [Login and create Token](#get-existing-user)
+- [Products](#create-product)
+    - [Create a new Product](#create-product)
+    - [Get Product by SKU](#get-product)
+    - [Add Product to cart](#add-to-cart)
+    
 ## Create a new User
 
 ### Request
