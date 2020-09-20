@@ -1,9 +1,6 @@
 # Simple cart app with Users, Products and Carts functionality
 
-This is a bare-bones example of a Sinatra application providing a REST
-API to a DataMapper-backed model.
-
-The entire application is contained within the `app.rb` file.
+This App is built with Moleculer microservices, Elasticsearch as a database, Redis for caching.
 
 ## Install
 
