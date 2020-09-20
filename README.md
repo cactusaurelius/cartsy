@@ -21,11 +21,11 @@ The entire application is contained within the `app.rb` file.
 
 The REST API to the example app is described below.
 
-## Get list of Things
+## Create User
 
 ### Request
 
-`GET /thing/`
+`POST /users/create`
 
     curl -i -H 'Accept: application/json' http://localhost:7000/thing/
 
@@ -40,11 +40,11 @@ The REST API to the example app is described below.
 
     []
 
-## Create a new Thing
+## Login
 
 ### Request
 
-`POST /thing/`
+`POST /users/login`
 
     curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost:7000/thing
 
@@ -60,11 +60,11 @@ The REST API to the example app is described below.
 
     {"id":1,"name":"Foo","status":"new"}
 
-## Get a specific Thing
+## Get user data
 
 ### Request
 
-`GET /thing/id`
+`GET /users/me`
 
     curl -i -H 'Accept: application/json' http://localhost:7000/thing/1
 
@@ -83,7 +83,7 @@ The REST API to the example app is described below.
 
 ### Request
 
-`GET /thing/id`
+`POST /products/create`
 
     curl -i -H 'Accept: application/json' http://localhost:7000/thing/9999
 
